@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.factories'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -63,7 +63,7 @@ angular.module('starter.controllers', [])
 	} ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams, $q, $http) {
+.controller('PlaylistCtrl', function($scope, $stateParams, $q, $http, audioFactory) {
 	console.info($stateParams);
 	console.info($stateParams.playlistId);
  
@@ -95,7 +95,14 @@ angular.module('starter.controllers', [])
 	$scope.tracks = tracks;
 	$scope.currentTrackIndex = currentTrackIndex;
 	$scope.control = control;
-	
+	audioFactory.getPlayList('abc').then(function(response) {
+		
+		console.info('Playlist ' + response.data);
+		$scope.tracks = response.data;
+	}, function(error) {
+		
+		console.info("error");
+	});
 	
 /*	$.get( "http://preciousnailspaleesburg.com/playlist1.html", function( data ) {
 		 console.info( data );
