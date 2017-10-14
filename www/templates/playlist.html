@@ -1,32 +1,46 @@
 <ion-view view-title="Playlist">
   <ion-content>
-    <h1>Playlist</h1>
-     <div class="example">
-
+    
         <div class="player">
-            <div class="pl"></div>
+            <!-- <div class="pl"></div> -->
             <div class="title"></div>
             <div class="artist"></div>
             <div class="cover"></div>
             <div class="controls">
                 <div class="play"></div>
                 <div class="pause"></div>
-                <div class="rew"></div>
-                <div class="fwd"></div>
+                <div class="rew" ng-disabled="control.prevEnabled" ng-click="prevTrack()"></div>
+                <div class="fwd" ng-disabled="control.nextEnabled" ng-click="nextTrack()"></div>
             </div>
             <div class="volume"></div>
             <div class="tracker"></div>
         </div>
-        <ul class="playlist hidden">
-            <li audiourl="lib/audioPlayer/data/01.mp3" cover="lib/audioPlayer/data/cover1.jpg" artist="Artist 1">01.mp3</li>
+        <ul class="playlist">
+            <!-- <li audiourl="lib/audioPlayer/data/01.mp3" cover="lib/audioPlayer/data/cover1.jpg" artist="Artist 1">01.mp3</li>
             <li audiourl="lib/audioPlayer/data/02.mp3" cover="lib/audioPlayer/data/cover2.jpg" artist="Artist 2">02.mp3</li>
             <li audiourl="lib/audioPlayer/data/03.mp3" cover="lib/audioPlayer/data/cover3.jpg" artist="Artist 3">03.mp3</li>
             <li audiourl="lib/audioPlayer/data/04.mp3" cover="lib/audioPlayer/data/cover4.jpg" artist="Artist 4">04.mp3</li>
             <li audiourl="lib/audioPlayer/data/05.mp3" cover="lib/audioPlayer/data/cover5.jpg" artist="Artist 5">05.mp3</li>
             <li audiourl="lib/audioPlayer/data/06.mp3" cover="lib/audioPlayer/data/cover6.jpg" artist="Artist 6">06.mp3</li>
             <li audiourl="lib/audioPlayer/data/07.mp3" cover="lib/audioPlayer/data/cover7.jpg" artist="Artist 7">07.mp3</li>
+             -->
+            <div class="list playlist" ng-click="playTrack($event, $index, track)" ng-repeat="track in tracks">				
+		            <li audiourl="{{track.url}}" artist="{{track.title}}" ng-class="">{{track.title}}</li>
+		                            
+			</div>
         </ul>
 
-    </div>
+
+    
+<!--     <br>
+    <br>
+    
+    <div class="list playlist" ng-click="playTrack(track)" ng-repeat="track in tracks">
+	<div class="item">	
+            <div audiourl="{{track.url}}" artist={{track.title}}>{{track.title}}</div>
+             -->                
+
+
+
   </ion-content>
 </ion-view>
