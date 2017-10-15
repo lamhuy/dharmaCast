@@ -7,10 +7,10 @@ angular.module('starter.factories', [])
 	var passengerCache = {};
 
 	return {
-		getPlayList : function(name) {
+		getPlayList : function(playlistName) {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'http://preciousnailspaleesburg.com/playlist1.json'
+	    		  url: 'http://preciousnailspaleesburg.com/playlist_'+ playlistName +'.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {

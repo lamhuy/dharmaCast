@@ -43,23 +43,17 @@ angular.module('starter.controllers', ['starter.factories'])
 
 .controller('PlaylistsCtrl', function($scope) {
 	$scope.playlists = [ {
-		title : 'Reggae',
+		title : 'Music',
+		listName: 'music',
 		id : 1		
 	}, {
-		title : 'Chill',
+		title : 'Phap Hoa',
+		listName: 'phaphoa',
 		id : 2
 	}, {
-		title : 'Dubstep',
+		title : 'Nhat Hanh',
+		listName: 'TNH',
 		id : 3
-	}, {
-		title : 'Indie',
-		id : 4
-	}, {
-		title : 'Rap',
-		id : 5
-	}, {
-		title : 'Cowbell',
-		id : 6
 	} ];
 })
 
@@ -95,56 +89,16 @@ angular.module('starter.controllers', ['starter.factories'])
 	$scope.tracks = tracks;
 	$scope.currentTrackIndex = currentTrackIndex;
 	$scope.control = control;
-	audioFactory.getPlayList('abc').then(function(response) {
+	audioFactory.getPlayList($stateParams.playlistId).then(function(response) {
 		
 		console.info('Playlist ' + response.data);
-		$scope.tracks = response.data;
+		tracks = response.data;
+		$scope.tracks = tracks;
 	}, function(error) {
 		
 		console.info("error");
 	});
-	
-/*	$.get( "http://preciousnailspaleesburg.com/playlist1.html", function( data ) {
-		 console.info( data );
-		 tracks = data;
-		 $scope.$apply(function(){
-			 $scope.tracks = data;
-		 })
 		
-	});
-	
-	 $scope.$watch('tracks', function(newValue,oldValue){
-		 $scope.tracks = newValue
-	 });*/
-	
-	
-	/*function asyncGreet(name) {
-		  // perform some asynchronous operation, resolve or reject the promise when appropriate.
-		  return $q(function(resolve, reject) {
-		    setTimeout(function() {
-		    	$http({
-	    		  method: 'GET',
-	    		  url: 'http://preciousnailspaleesburg.com/playlist1.json'
-	    		}).then(function successCallback(response) {
-	    			 resolve(response);
-    		  }, function errorCallback(response) {
-    			  reject('ERROR LITS');
-    		  });
-		    }, 1000);
-		  });
-		}
-
-		var promise = asyncGreet('Robin Hood');
-		promise.then(function(data) {
-		  console.info('Success: ' + data);
-		  $scope.tracks = data;
-		}, function(reason) {
-		  console.info('Failed: ' + data);
-		});
-	
-*/
-
-	
 	
 	function initAudio(elem) {
 		var url = elem.attr('audiourl');
