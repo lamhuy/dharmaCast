@@ -10,7 +10,7 @@ angular.module('starter.factories', [])
 		getDhramaCast : function() {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'http://preciousnailspaleesburg.com/dhramaCast.json'
+	    		  url: 'https://s3.amazonaws.com/dhramacast/playlists/dhramaCast.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
@@ -22,7 +22,7 @@ angular.module('starter.factories', [])
 		getTopicLists : function(dhramaCastName) {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'http://preciousnailspaleesburg.com/dhramaCast_'+ dhramaCastName +'.json'
+	    		  url: 'https://s3.amazonaws.com/dhramacast/playlists/dhramaCast_'+ dhramaCastName +'.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
@@ -30,11 +30,11 @@ angular.module('starter.factories', [])
     		  });
 	
 		},
-	
+	//http://dhramacast.s3-website-us-east-1.amazonaws.com/
 		getPlayList : function(playlistName) {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'http://preciousnailspaleesburg.com/playlist_'+ playlistName +'.json'
+	    		  url: 'https://s3.amazonaws.com/dhramacast/playlists/playlist_'+ playlistName +'.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
