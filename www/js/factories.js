@@ -7,6 +7,30 @@ angular.module('starter.factories', [])
 	var passengerCache = {};
 
 	return {
+		getDhramaCast : function() {
+			return $http({
+	    		  method: 'GET',
+	    		  url: 'http://preciousnailspaleesburg.com/dhramaCast.json'
+	    		}).then(function successCallback(response) {
+	    			 return response
+    		  }, function errorCallback(response) {
+    			  return 'ERROR dhramaCast LITS';
+    		  });
+	
+		},
+		
+		getTopicLists : function(dhramaCastName) {
+			return $http({
+	    		  method: 'GET',
+	    		  url: 'http://preciousnailspaleesburg.com/dhramaCast_'+ dhramaCastName +'.json'
+	    		}).then(function successCallback(response) {
+	    			 return response
+    		  }, function errorCallback(response) {
+    			  return 'ERROR topicList for ' + dhramaCastName;
+    		  });
+	
+		},
+	
 		getPlayList : function(playlistName) {
 			return $http({
 	    		  method: 'GET',
@@ -14,7 +38,7 @@ angular.module('starter.factories', [])
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
-    			  return 'ERROR LITS';
+    			  return 'ERROR playlist for ' + playlistName;
     		  });
 	
 		}

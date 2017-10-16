@@ -1,0 +1,9 @@
+<ion-view view-title="Dhrama Cast">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="dhramaCast in dhramaCasts" href="#/app/dhramaCast/{{dhramaCast.listName}}">
+        {{dhramaCast.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

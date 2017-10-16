@@ -49,12 +49,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.dhramaCast', {
+      url: '/dhramaCast',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/dhramaCast.html',
+          controller: 'DhramaCastCtrl'
+        }
+      }
+    })
+    .state('app.topiclists', {
+      url: '/dhramaCast/:dhramaCastName',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/topiclists.html',
+          controller: 'TopiclistsCtrl'
         }
       }
     })
@@ -69,5 +78,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/dhramaCast');
 });

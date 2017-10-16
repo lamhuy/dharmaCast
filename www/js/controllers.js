@@ -41,23 +41,47 @@ angular.module('starter.controllers', ['starter.factories'])
 	};
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-	$scope.playlists = [ {
-		title : 'Music',
-		listName: 'music',
-		id : 1		
-	}, {
-		title : 'Phap Hoa',
-		listName: 'phaphoa',
-		id : 2
-	}, {
-		title : 'Nhat Hanh',
-		listName: 'TNH',
-		id : 3
-	} ];
+
+.controller('DhramaCastCtrl', function($scope, audioFactory) {
+	//grab json
+	var dhramaCasts  = [];
+	
+	audioFactory.getDhramaCast().then(function(response) {
+		
+		console.info("dhramaCasts: ", response.data);
+		dhramaCasts = response.data;
+		$scope.dhramaCasts = dhramaCasts;
+		
+	}, function(error) {
+		
+		console.info(error);
+	});
+	
+	$scope.dhramaCasts = dhramaCasts;
+	
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams, $q, $http, audioFactory) {
+
+.controller('TopiclistsCtrl', function($scope,  $stateParams, audioFactory) {
+	// grab json
+	
+	var topicLists = [];
+	
+	audioFactory.getTopicLists($stateParams.dhramaCastName).then(function(response) {
+		
+		console.info('Topiclists ' + response.data);
+		topicLists = response.data;
+		$scope.topicLists = topicLists;
+	}, function(error) {
+		
+		console.info(error);
+	});
+	
+	$scope.topicLists = topicLists;
+	
+})
+
+.controller('PlaylistCtrl', function($scope, $stateParams, audioFactory) {
 	console.info($stateParams);
 	console.info($stateParams.playlistId);
  
@@ -72,31 +96,19 @@ angular.module('starter.controllers', ['starter.factories'])
 		nextEnabled : false
 	};
 
-	var tracks = [ {
-		freq : '81.4',
-		title : "Groove Salad",
-		src : 'http://www.preciousnailspaleesburg.com/data/01.mp3'
-
-	},
-	{
-		freq : '81.4',
-		title : "Track 2",
-		src : 'http://www.preciousnailspaleesburg.com/data/02.mp3'
-
-	}];
+	var tracks = [];
 	
 
-	$scope.tracks = tracks;
-	$scope.currentTrackIndex = currentTrackIndex;
-	$scope.control = control;
+
 	audioFactory.getPlayList($stateParams.playlistId).then(function(response) {
 		
 		console.info('Playlist ' + response.data);
 		tracks = response.data;
 		$scope.tracks = tracks;
+		initTrack(tracks[currentTrackIndex]);
 	}, function(error) {
 		
-		console.info("error");
+		console.info(error);
 	});
 		
 	
@@ -252,9 +264,9 @@ angular.module('starter.controllers', ['starter.factories'])
 	 */
 	// initialization - first element in playlist
 	// initAudio($('.playlist li:first-child'));
-	initTrack(tracks[currentTrackIndex]);
+	//initTrack(tracks[currentTrackIndex]);
 	// set volume
-	song.volume = 0.8;
+	//song.volume = 0.8;
 
 	// initialize the volume slider
 	volume.slider({
@@ -298,5 +310,9 @@ angular.module('starter.controllers', ['starter.factories'])
 		}, 100);
 
 	}
+	
+	$scope.tracks = tracks;
+	$scope.currentTrackIndex = currentTrackIndex;
+	$scope.control = control;
 
 });
