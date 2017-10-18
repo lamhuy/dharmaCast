@@ -39,8 +39,12 @@ header a, a:visited {
 }
 .player {
     background: transparent url("../images/spr.png") no-repeat scroll center top;
+    background-color: #333333;
+    border-radius: 5px 5px 5px 5px;
+    margin: -10px 4px 0px 2px;
     height: 162px;
     position: relative;
+    margin-bottom: 12px;
     width: 326px;
     z-index: 2;
 }
@@ -168,11 +172,11 @@ header a, a:visited {
     background-color: #333333;
     border-radius: 5px 5px 5px 5px;
     list-style-type: none;
-    margin: -10px 0 0 2px;
+    margin: -10px 4px 0px 2px;
     padding-bottom: 10px;
     padding-top: 15px;
     position: relative;
-    width: 326px;
+    /* width: 326px; */
     z-index: 1;
 }
 .playlist li {

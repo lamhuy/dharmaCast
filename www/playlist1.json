@@ -1,0 +1,24 @@
+[ {
+    freq : '81.4',
+    title : "Groove Salad",
+    src : 'lib/audioPlayer/data/01.mp3'
+
+}, {
+    freq : '89.9',
+    title : "Secret Agent",
+    src : 'lib/audioPlayer/data/02.mp3'
+}, {
+    freq : '98.9',
+    title : "Indie Pop",
+    src : 'lib/audioPlayer/data/03.mp3'
+
+}, {
+    freq : '103.3',
+    title : "Police Radio",
+    src : 'lib/audioPlayer/data/04.mp3'
+
+}, {
+    freq : '107.7',
+    title : "The Trip",
+    src : 'lib/audioPlayer/data/05.mp3'
+} ]
