@@ -42,22 +42,22 @@ angular.module('starter.controllers', ['starter.factories'])
 })
 
 
-.controller('DhramaCastCtrl', function($scope, audioFactory) {
+.controller('DharmaCastCtrl', function($scope, audioFactory) {
 	//grab json
-	var dhramaCasts  = [];
+	var dharmaCasts  = [];
 	
-	audioFactory.getDhramaCast().then(function(response) {
+	audioFactory.getDharmaCast().then(function(response) {
 		
-		console.info("dhramaCasts: ", response.data);
-		dhramaCasts = response.data;
-		$scope.dhramaCasts = dhramaCasts;
+		console.info("dharmaCasts: ", response.data);
+		dharmaCasts = response.data;
+		$scope.dharmaCasts = dharmaCasts;
 		
 	}, function(error) {
 		
 		console.info(error);
 	});
 	
-	$scope.dhramaCasts = dhramaCasts;
+	$scope.dharmaCasts = dharmaCasts;
 	
 })
 
@@ -67,7 +67,7 @@ angular.module('starter.controllers', ['starter.factories'])
 	
 	var topicLists = [];
 	
-	audioFactory.getTopicLists($stateParams.dhramaCastName).then(function(response) {
+	audioFactory.getTopicLists($stateParams.dharmaCastName).then(function(response) {
 		
 		console.info('Topiclists ' + response.data);
 		topicLists = response.data;

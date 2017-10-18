@@ -7,34 +7,34 @@ angular.module('starter.factories', [])
 	var passengerCache = {};
 
 	return {
-		getDhramaCast : function() {
+		getDharmaCast : function() {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'https://s3.amazonaws.com/dhramacast/playlists/dhramaCast.json'
+	    		  url: 'https://s3.amazonaws.com/dharmacast/playlists/dharmaCast.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
-    			  return 'ERROR dhramaCast LITS';
+    			  return 'ERROR dharmaCast LITS';
     		  });
 	
 		},
 		
-		getTopicLists : function(dhramaCastName) {
+		getTopicLists : function(dharmaCastName) {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'https://s3.amazonaws.com/dhramacast/playlists/dhramaCast_'+ dhramaCastName +'.json'
+	    		  url: 'https://s3.amazonaws.com/dharmacast/playlists/dharmaCast_'+ dharmaCastName +'.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
-    			  return 'ERROR topicList for ' + dhramaCastName;
+    			  return 'ERROR topicList for ' + dharmaCastName;
     		  });
 	
 		},
-	//http://dhramacast.s3-website-us-east-1.amazonaws.com/
+	//http://dharmacast.s3-website-us-east-1.amazonaws.com/
 		getPlayList : function(playlistName) {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'https://s3.amazonaws.com/dhramacast/playlists/playlist_'+ playlistName +'.json'
+	    		  url: 'https://s3.amazonaws.com/dharmacast/playlists/playlist_'+ playlistName +'.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
