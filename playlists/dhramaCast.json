@@ -3,11 +3,7 @@
 	"listName": "TNH",
 	"id" : 1		
 }, {
-	"title" : "Phap Hoa",
-	"listName": "PH",
+	"title" : "Thich Phap Hoa",
+	"listName": "TPH",
 	"id" : 2
-}, {
-	"title" : "Music",
-	"listName": "music",
-	"id" : 3
-} ]
+}]
