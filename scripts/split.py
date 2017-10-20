@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 import sys
+import json
 from queue import Queue
 from threading import Thread
 from uuid import uuid4
@@ -43,7 +44,7 @@ def split_song(album, tracks_start, index, track, FOLDER):
     start = tracks_start[index]
     end = tracks_start[index+1]
     duration = end-start
-    track_path = '{}/{:02d} - {}.mp3'.format(FOLDER, index+1, track)
+    track_path = '{}/{}.mp3'.format(FOLDER, track)
     album[start:][:duration].export(track_path, format="mp3")
 
     print("\t\tTagging")
@@ -117,6 +118,11 @@ if __name__ == "__main__":
         default=False
     )
     parser.add_argument(
+        "-sd", "--segDuration",               
+        help="Specify static segment duration in minute length to split each track. ",             
+        default=None
+    )
+    parser.add_argument(
         "-th", "--threaded",
         dest='threaded',
         action='store_true',
@@ -155,7 +161,18 @@ if __name__ == "__main__":
     THREADED = args.threaded
     NUM_THREADS = int(args.num_threads)
     METASRC = args.metadata
+    SEGMENT_DURATION = args.segDuration
     DRYRUN = args.dry
+
+    print(SEGMENT_DURATION)
+    
+    # input validation
+    if SEGMENT_DURATION is not None:
+        try:
+            val = int(SEGMENT_DURATION)
+        except ValueError:
+            print("That's not an int!")
+            exit()
 
     if DRYRUN:
         print("**** DRY RUN ****")
@@ -197,6 +214,26 @@ if __name__ == "__main__":
     tracks_start = []
     tracks_titles = []
 
+    
+    if SEGMENT_DURATION is None:
+        print("Parsing " + TRACKS_FILE_NAME)
+        with open(TRACKS_FILE_NAME) as tracks_file:
+            time_elapsed = '0:00:00'
+            for i, line in enumerate(tracks_file):
+                curr_start, curr_title = track_parser(line)
+
+                if DRYRUN:
+                    print(curr_title + " *** " + curr_start)
+
+                if DURATION:
+                    t_start = time_to_seconds(time_elapsed)
+                    time_elapsed = update_time_change(time_elapsed, curr_start)
+                else:
+                    t_start = time_to_seconds(curr_start)
+
+                tracks_start.append(t_start*1000)
+                tracks_titles.append(curr_title)
+            
     if DRYRUN:
         exit()
 
@@ -225,17 +262,18 @@ if __name__ == "__main__":
     albumLen = len(album)
     print("Album Len: ", albumLen)
 
-    # 5 mins
-    segmentLen = 5*60*1000 
-    numTracks = int(round(albumLen/segmentLen))
-    
-    for i in range(0, numTracks):
-        print(i)
-        tracks_start.append(i*segmentLen)
-        if ALBUM:
-            tracks_titles.append(ALBUM)
-        else:
-            tracks_titles.append("Track " + str(i+1))
+    if SEGMENT_DURATION is not None:
+        # 5 mins
+        segmentLen = int(SEGMENT_DURATION)*60*1000 
+        numTracks = int(round(albumLen/segmentLen))
+
+        for i in range(0, numTracks):           
+            tracks_start.append(i*segmentLen)
+            if ALBUM:
+                tracks_titles.append('{:02d} - {}'.format(i+1, ALBUM)) #continue work here, split append the number, mismatch with tracks.json
+                
+            else:
+                tracks_titles.append('{:02d} - {} {}'.format(i+1, "Track", i+1))
 
     tracks_start.append(len(album))  # we need this for the last track/split
 
@@ -261,8 +299,14 @@ if __name__ == "__main__":
     else:
         tracks_titles.append("END")
         print(tracks_titles)
-        print(tracks_start)
         for i, track in enumerate(tracks_titles):
             if i != len(tracks_titles)-1:
                 split_song(album, tracks_start, i, track, FOLDER)
+    
+    
+    #output track.json
+    trackFile = open('tracks.json','w+')  
+    trackFile.write(json.dumps(tracks_titles))
+    
+    
     print("All Done")

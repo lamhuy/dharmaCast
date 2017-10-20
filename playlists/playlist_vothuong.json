@@ -1,22 +1,25 @@
-[ { 
-	 "title": "01 - Nhan Thuc Ve Vo Thuong.mp3", 
-	 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/01 - Nhan Thuc Ve Vo Thuong.mp3" 
- }, { 
-	 "title": "02 - Nhan Thuc Ve Vo Thuong.mp3", 
-	 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/02 - Nhan Thuc Ve Vo Thuong.mp3" 
- }, { 
-	 "title": "03 - Nhan Thuc Ve Vo Thuong.mp3", 
-	 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/03 - Nhan Thuc Ve Vo Thuong.mp3" 
- }, { 
-	 "title": "04 - Nhan Thuc Ve Vo Thuong.mp3", 
-	 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/04 - Nhan Thuc Ve Vo Thuong.mp3" 
- }, { 
-	 "title": "05 - Nhan Thuc Ve Vo Thuong.mp3", 
-	 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/05 - Nhan Thuc Ve Vo Thuong.mp3" 
- }, { 
-	 "title": "06 - Nhan Thuc Ve Vo Thuong.mp3", 
-	 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/06 - Nhan Thuc Ve Vo Thuong.mp3" 
- }, { 
-	 "title": "07 - Nhan Thuc Ve Vo Thuong.mp3", 
-	 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/07 - Nhan Thuc Ve Vo Thuong.mp3" 
- }  ]
+{
+	"title" : "Nhan Thuc Ve Vo Thuong",
+	"playlist": [ { 
+		 "title": "01 - Nhan Thuc Ve Vo Thuong.mp3", 
+		 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/01 - Nhan Thuc Ve Vo Thuong.mp3" 
+	 }, { 
+		 "title": "02 - Nhan Thuc Ve Vo Thuong.mp3", 
+		 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/02 - Nhan Thuc Ve Vo Thuong.mp3" 
+	 }, { 
+		 "title": "03 - Nhan Thuc Ve Vo Thuong.mp3", 
+		 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/03 - Nhan Thuc Ve Vo Thuong.mp3" 
+	 }, { 
+		 "title": "04 - Nhan Thuc Ve Vo Thuong.mp3", 
+		 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/04 - Nhan Thuc Ve Vo Thuong.mp3" 
+	 }, { 
+		 "title": "05 - Nhan Thuc Ve Vo Thuong.mp3", 
+		 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/05 - Nhan Thuc Ve Vo Thuong.mp3" 
+	 }, { 
+		 "title": "06 - Nhan Thuc Ve Vo Thuong.mp3", 
+		 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/06 - Nhan Thuc Ve Vo Thuong.mp3" 
+	 }, { 
+		 "title": "07 - Nhan Thuc Ve Vo Thuong.mp3", 
+		 "src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TPH/vothuong/07 - Nhan Thuc Ve Vo Thuong.mp3" 
+	 }  ]
+}

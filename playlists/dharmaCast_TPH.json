@@ -1,5 +1,8 @@
-[ {
-	"title" : "Nhan Thuc Ve Vo Thuong",
-	"listName": "vothuong",
-	"id" : 1
-} ]
+{
+	"title" : "Thich Phap Hoa",
+	"playlists": [ {
+		"title" : "Nhan Thuc Ve Vo Thuong",
+		"listName": "vothuong",
+		"id" : 1
+	} ]
+}

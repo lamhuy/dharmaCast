@@ -1,64 +1,67 @@
-[{
-	"title": "C01_03.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C01_03.mp3"
-}, {
-	"title": "C04_07.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C04_07.mp3"
-}, {
-	"title": "C08_12.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C08_12.mp3"
-}, {
-	"title": "C13_15.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C13_15.mp3"
-}, {
-	"title": "C16_19.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C16_19.mp3"
-}, {
-	"title": "C20_23.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C20_23.mp3"
-}, {
-	"title": "C24_28.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C24_28.mp3"
-}, {
-	"title": "C29_32.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C29_32.mp3"
-}, {
-	"title": "C32_36.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C32_36.mp3"
-}, {
-	"title": "C37_40.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C37_40.mp3"
-}, {
-	"title": "C41-44.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C41-44.mp3"
-}, {
-	"title": "C45_49.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C45_49.mp3"
-}, {
-	"title": "C50_52.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C50_52.mp3"
-}, {
-	"title": "C53_55.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C53_55.mp3"
-}, {
-	"title": "C56_59.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C56_59.mp3"
-}, {
-	"title": "C60_63.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C60_63.mp3"
-}, {
-	"title": "C64_66.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C64_66.mp3"
-}, {
-	"title": "C67_69.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C67_69.mp3"
-}, {
-	"title": "C70_73.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C70_73.mp3"
-}, {
-	"title": "C74_78.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C74_78.mp3"
-}, {
-	"title": "C79_het.mp3",
-	"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C79_het.mp3"
-}]
+{
+	"title" : "Duong Xua May Trang",
+	"playlist": [ { 
+		"title": "C01_03.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C01_03.mp3"
+	}, {
+		"title": "C04_07.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C04_07.mp3"
+	}, {
+		"title": "C08_12.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C08_12.mp3"
+	}, {
+		"title": "C13_15.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C13_15.mp3"
+	}, {
+		"title": "C16_19.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C16_19.mp3"
+	}, {
+		"title": "C20_23.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C20_23.mp3"
+	}, {
+		"title": "C24_28.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C24_28.mp3"
+	}, {
+		"title": "C29_32.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C29_32.mp3"
+	}, {
+		"title": "C32_36.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C32_36.mp3"
+	}, {
+		"title": "C37_40.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C37_40.mp3"
+	}, {
+		"title": "C41-44.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C41-44.mp3"
+	}, {
+		"title": "C45_49.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C45_49.mp3"
+	}, {
+		"title": "C50_52.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C50_52.mp3"
+	}, {
+		"title": "C53_55.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C53_55.mp3"
+	}, {
+		"title": "C56_59.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C56_59.mp3"
+	}, {
+		"title": "C60_63.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C60_63.mp3"
+	}, {
+		"title": "C64_66.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C64_66.mp3"
+	}, {
+		"title": "C67_69.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C67_69.mp3"
+	}, {
+		"title": "C70_73.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C70_73.mp3"
+	}, {
+		"title": "C74_78.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C74_78.mp3"
+	}, {
+		"title": "C79_het.mp3",
+		"src": "http://dharmacast.s3-website-us-east-1.amazonaws.com/TNH/DXMT/C79_het.mp3"
+	}]
+}

@@ -64,24 +64,22 @@ angular.module('starter.controllers', ['starter.factories'])
 
 .controller('TopiclistsCtrl', function($scope,  $stateParams, audioFactory) {
 	// grab json
-	
-	var topicLists = [];
-	
 	audioFactory.getTopicLists($stateParams.dharmaCastName).then(function(response) {
 		
-		console.info('Topiclists ' + response.data);
-		topicLists = response.data;
-		$scope.topicLists = topicLists;
+		console.info('Topiclists ', response.data);
+		$scope.title = response.data.title;
+		$scope.topicLists = response.data.playlists;
+		
 	}, function(error) {
 		
 		console.info(error);
 	});
 	
-	$scope.topicLists = topicLists;
+	
 	
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams, audioFactory) {
+.controller('PlaylistCtrl', function($scope, $stateParams, $ionicPlatform, audioFactory) {
 	console.info($stateParams);
 	console.info($stateParams.playlistId);
  
@@ -102,9 +100,10 @@ angular.module('starter.controllers', ['starter.factories'])
 
 	audioFactory.getPlayList($stateParams.playlistId).then(function(response) {
 		
-		console.info('Playlist ' + response.data);
-		tracks = response.data;
+		console.info('Playlist ', response.data);
+		tracks = response.data.playlist;
 		$scope.tracks = tracks;
+		$scope.title = response.data.title;
 		initTrack(tracks[currentTrackIndex]);
 	}, function(error) {
 		
@@ -311,8 +310,13 @@ angular.module('starter.controllers', ['starter.factories'])
 
 	}
 	
+	$scope.$on("$destroy", function() {
+		console.info("leaving controller");
+		stopAudio();
+    });
+	 
+	
 	$scope.tracks = tracks;
 	$scope.currentTrackIndex = currentTrackIndex;
 	$scope.control = control;
-
 });

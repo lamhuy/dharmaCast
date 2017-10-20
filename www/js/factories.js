@@ -14,7 +14,7 @@ angular.module('starter.factories', [])
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
-    			  return 'ERROR dharmaCast LITS';
+    			  return 'ERROR dharmaCast LIST';
     		  });
 	
 		},
