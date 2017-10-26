@@ -68,7 +68,8 @@ angular.module('starter.controllers', ['starter.factories'])
 		
 		console.info('Topiclists ', response.data);
 		$scope.title = response.data.title;
-		$scope.topicLists = response.data.playlists;
+		$scope.artistKey = response.data.key;
+		$scope.playlists = response.data.playlists;
 		
 	}, function(error) {
 		
@@ -82,12 +83,13 @@ angular.module('starter.controllers', ['starter.factories'])
 .controller('PlaylistCtrl', function($scope, $stateParams, $ionicPlatform, audioFactory) {
 	console.info($stateParams);
 	console.info($stateParams.playlistId);
+	console.info($stateParams.dharmaCastName);
  
 	// inner variables
 	var song;
 	var tracker = $('.tracker');
 	var volume = $('.volume');
-	
+	var audioLen = ''
 	var currentTrackIndex = 0;
 	var control = {
 		prevEnabled : false,
@@ -98,7 +100,7 @@ angular.module('starter.controllers', ['starter.factories'])
 	
 
 
-	audioFactory.getPlayList($stateParams.playlistId).then(function(response) {
+	audioFactory.getPlayList($stateParams.dharmaCastName, $stateParams.playlistId).then(function(response) {
 		
 		console.info('Playlist ', response.data);
 		tracks = response.data.playlist;
@@ -146,6 +148,14 @@ angular.module('starter.controllers', ['starter.factories'])
 			var curtime = parseInt(song.currentTime, 10);
 			tracker.slider('value', curtime);
 			
+			var s = parseInt(song.currentTime % 60);
+			var m = parseInt((song.currentTime / 60) % 60);
+			if(s<10)
+				  s = '0' + s;
+			$scope.duration =  m + ':' + s;
+			
+			$scope.value = song.currentTime;
+			$scope.$apply()
 			
 		});
 		
@@ -155,11 +165,17 @@ angular.module('starter.controllers', ['starter.factories'])
 				$scope.nextTrack();		
 				setTimeout(function() {
 					playAudio();
-				}, 100);
+				}, 500);
 			}
 		}
+		
+		song.addEventListener("loadeddata", function() {
+			 console.log("Audio data loaded");
+			 console.log("Audio duration: " + this.duration);
+			CreateSeekBar();
+			});
 	
-
+	
 		if(currentTrackIndex == 0){
 			control.prevEnabled = false;
 		}
@@ -310,13 +326,54 @@ angular.module('starter.controllers', ['starter.factories'])
 
 	}
 	
+	
+	function CreateSeekBar() {
+		  var seekbar = document.getElementById("audioSeekBar");
+		    $scope.value = 0;
+		    $scope.min = 0;
+		    $scope.max = song.duration;;
+		    $scope.duration = '0:00';
+		    
+		  seekbar.min = 0;
+		  seekbar.max = 
+		  seekbar.value = 0;
+		  var s = parseInt(song.duration % 60);
+		  var m = parseInt((song.duration / 60) % 60);
+		  if(s<10)
+			  s = '0' + s;
+		  $scope.audioLen = m + ':' + s;
+		
+		  $scope.$apply()
+	}
+
+/*	function EndofAudio() {
+	  document.getElementById("audioSeekBar").value = 0;
+	}*/
+
+	$scope.audioSeekBar = function() {
+	  var seekbar = document.getElementById("audioSeekBar");
+	  song.currentTime = seekbar.value;
+	}
+
+
+/*	audio.addEventListener("timeupdate", function() {
+	  var duration = document.getElementById("duration");
+	  var s = parseInt(song.currentTime % 60);
+	  var m = parseInt((song.currentTime / 60) % 60);
+	  duration.innerHTML = m + ':' + s;
+	}, false);
+	*/
+	
 	$scope.$on("$destroy", function() {
 		console.info("leaving controller");
 		stopAudio();
     });
 	 
 	
+
+	
 	$scope.tracks = tracks;
 	$scope.currentTrackIndex = currentTrackIndex;
 	$scope.control = control;
+	$scope.audioLen = audioLen;
 });

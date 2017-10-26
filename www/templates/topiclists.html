@@ -2,8 +2,8 @@
 <ion-nav-title>{{title}}</ion-nav-title>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="topicList in topicLists" href="#/app/playlists/{{topicList.listName}}">
-        {{topicList.title}}
+      <ion-item ng-repeat="playlist in playlists" href="#/app/dharmaCast/{{artistKey}}/{{playlist.listName}}">
+        {{playlist.title}}
       </ion-item>
     </ion-list>
   </ion-content>

@@ -69,7 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
   .state('app.single', {
-    url: '/playlists/:playlistId',
+    url: '/dharmaCast/:dharmaCastName/:playlistId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',

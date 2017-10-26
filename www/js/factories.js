@@ -10,7 +10,7 @@ angular.module('starter.factories', [])
 		getDharmaCast : function() {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'https://s3.amazonaws.com/dharmacast/playlists/dharmaCast.json'
+	    		  url: 'https://s3.amazonaws.com/dharmacast/dharmaCast.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
@@ -22,7 +22,7 @@ angular.module('starter.factories', [])
 		getTopicLists : function(dharmaCastName) {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'https://s3.amazonaws.com/dharmacast/playlists/dharmaCast_'+ dharmaCastName +'.json'
+	    		  url: 'https://s3.amazonaws.com/dharmacast/'+dharmaCastName +'/dharmaCast_'+ dharmaCastName +'.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
@@ -31,10 +31,10 @@ angular.module('starter.factories', [])
 	
 		},
 	//http://dharmacast.s3-website-us-east-1.amazonaws.com/
-		getPlayList : function(playlistName) {
+		getPlayList : function(dharmaCastName, playlistName) {
 			return $http({
 	    		  method: 'GET',
-	    		  url: 'https://s3.amazonaws.com/dharmacast/playlists/playlist_'+ playlistName +'.json'
+	    		  url: 'https://s3.amazonaws.com/dharmacast/'+dharmaCastName + '/' + playlistName +'/playlist_'+ playlistName +'.json'
 	    		}).then(function successCallback(response) {
 	    			 return response
     		  }, function errorCallback(response) {
