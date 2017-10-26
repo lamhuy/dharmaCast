@@ -5,38 +5,30 @@
 			<input type="text" placeholder="Flight Search" ng-model="search" ng-change="resizeContent()">			
 		</label>
 		<button type="button" class="button button-clear icon ion-ios7-close-empty" ng-click="search = null"></button>
-	</div> --> <ion-content class="has-footer">
+	</div> --> 
+	
+	<ion-content class="has-footer">
 
-<div class="player">
-	<!-- <div class="pl"></div> -->
-	<div class="title"></div>
-	<div class="artist"></div>
-	<!-- <div class="cover"></div> -->
-	<div class="controls">
-		<div class="play"></div>
-		<div class="pause"></div>
-		<div class="rew" ng-disabled="control.prevEnabled"
-			ng-click="prevTrack()"></div>
-		<div class="fwd" ng-disabled="control.nextEnabled"
-			ng-click="nextTrack()"></div>
-	</div>
-	<div class="volume"></div>
-	<div class="tracker"></div>
-</div>
-<ul class="playlist">
+<!-- <ul class="playlist">
 	<div class="list playlist" ng-click="playTrack($event, $index, track)"
 		ng-repeat="track in tracks">
 		<li audiourl="{{track.url}}" artist="{{track.title}}" ng-class="">{{track.title}}</li>
 	</div>
-</ul>
+</ul>  -->
+
+    <div class="list" style="margin-bottom:0px;" ng-click="playTrack($event, $index, track)" ng-repeat="track in tracks">
+	<div class="item"  ng-class="{active : currentTrackIndex === $index}">	
+            <div audiourl="{{track.url}}" artist={{track.title}}>{{track.title}}</div>
+     </div>
+     </div>
  	 
 </ion-content>
 <div class="bar bar-footer bar-balance ">
-	<button class="button button-assertive"><<</button>
-	<button class="button button-assertive">play</button>
-	<button class="button button-assertive">>></button>
+	<button class="button button-assertive" ng-click="prevTrack()" ng-disabled="control.prevEnabled"><<</button>
+	<button class="button button-assertive" ng-click="playBtn()" >{{buttonText}}</button>
+	<button class="button button-assertive" ng-click="nextTrack()" ng-disabled="control.nextEnabled">>></button>
 	<div class="seek-field" style="width:100%">		
-       <input id="audioSeekBar" ng-model="value" min="{{min}}"  max="{{max}}" style="width:100%" type="range" ng-change="audioSeekBar()" />
+       <input id="audioSeekBar" ng-model="barValue" min="{{barMin}}"  max="{{barMax}}" style="width:100%" type="range" ng-change="audioSeekBar()" />
     </div>
     <div id="duration"><i>{{duration}}/</i>{{audioLen}}</div>
 	
