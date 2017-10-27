@@ -24,9 +24,9 @@
  	 
 </ion-content>
 <div class="bar bar-footer bar-balance ">
-	<button class="button button-assertive" ng-click="prevTrack()" ng-disabled="control.prevEnabled"><<</button>
+	<button class="button button-assertive" ng-click="prevTrack()" ng-disabled="control.prevEnabled"><i class="icon icon ion-ios-rewind"></i></button>
 	<button class="button button-assertive" ng-click="playBtn()" >{{buttonText}}</button>
-	<button class="button button-assertive" ng-click="nextTrack()" ng-disabled="control.nextEnabled">>></button>
+	<button class="button button-assertive" ng-click="nextTrack()" ng-disabled="control.nextEnabled"><i class="icon icon ion-ios-fastforward"></i></button>
 	<div class="seek-field" style="width:100%">		
        <input id="audioSeekBar" ng-model="barValue" min="{{barMin}}"  max="{{barMax}}" style="width:100%" type="range" ng-change="audioSeekBar()" />
     </div>
