@@ -3,7 +3,7 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="playlist in playlists" href="#/app/dharmaCast/{{artistKey}}/{{playlist.listName}}">
-        {{playlist.title}}
+        {{playlist.title}} <span ng-if="playlist.date"> - {{playlist.date}}</span>
       </ion-item>
     </ion-list>
   </ion-content>
