@@ -81,14 +81,12 @@ angular.module('starter.controllers', ['starter.factories'])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams, $ionicPlatform, audioFactory) {
-	console.info($stateParams);
+/*	console.info($stateParams);
 	console.info($stateParams.playlistId);
-	console.info($stateParams.dharmaCastName);
+	console.info($stateParams.dharmaCastName);*/
  
 	// inner variables
-	var song;
-	var tracker = $('.tracker');
-	var volume = $('.volume');
+	var song;	
 	var audioLen = ''
 	var currentTrackIndex = 0;
 	var control = {
@@ -98,8 +96,6 @@ angular.module('starter.controllers', ['starter.factories'])
 
 	var tracks = [];
 	
-
-
 	audioFactory.getPlayList($stateParams.dharmaCastName, $stateParams.playlistId).then(function(response) {
 		
 		console.info('Playlist ', response.data);
@@ -110,44 +106,15 @@ angular.module('starter.controllers', ['starter.factories'])
 	}, function(error) {
 		
 		console.info(error);
-	});
-		
+	});		
 	
-	function initAudio(elem) {
-		var url = elem.attr('audiourl');
-		var title = elem.text();
-		var cover = elem.attr('cover');
-		var artist = elem.attr('artist');
-
-		$('.player .title').text(title);
-		$('.player .artist').text(artist);
-		$('.player .cover').css('background-image', 'url(/' + cover + ')');
-		;
-
-		song = new Audio(url);
-		// timeupdate event listener
-		song.addEventListener('timeupdate', function() {
-			var curtime = parseInt(song.currentTime, 10);
-			tracker.slider('value', curtime);
-		});
-
-		$('.playlist li').removeClass('active');
-		elem.addClass('active');
-	}
-
 	function initTrack(track) {
 
-		$('.player .title').text(track.title);
-		$('.player .artist').text(track.artist);
-		// $('.player .cover').css('background-image','url(/' + cover+')');;
-		$scope.buttonText = 'Play';
+		$scope.buttonText = 'icon icon ion-ios-play';
 		song = new Audio(track.src);
 		
 		// timeupdate event listener
 		song.addEventListener('timeupdate', function() {
-			var curtime = parseInt(song.currentTime, 10);
-			tracker.slider('value', curtime);
-			
 			var s = parseInt(song.currentTime % 60);
 			var m = parseInt((song.currentTime / 60) % 60);
 			if(s<10)
@@ -169,9 +136,8 @@ angular.module('starter.controllers', ['starter.factories'])
 			}
 		}
 		
-		song.addEventListener("loadeddata", function() {
-			console.log("Audio data loaded");
-			console.log("Audio duration: " + this.duration);
+		//after audio data is load then create seek bar
+		song.addEventListener("loadeddata", function() {			
 			CreateSeekBar();
 		});
 	
@@ -179,15 +145,10 @@ angular.module('starter.controllers', ['starter.factories'])
 		if(currentTrackIndex == 0){
 			control.prevEnabled = false;
 		}
-		
-		
-		$('.playlist li').removeClass('active');
-		/* elem.addClass('active'); */
 	}
 
 	function playAudio() {
-		song.play();
-		tracker.slider("option", "max", song.duration);
+		song.play();		
 	}
 	function stopAudio() {
 		song.pause();
@@ -199,6 +160,8 @@ angular.module('starter.controllers', ['starter.factories'])
 			currentTrackIndex--;
 			$scope.currentTrackIndex =currentTrackIndex;			
 			initTrack(tracks[currentTrackIndex]);
+			playAudio();
+			$scope.buttonText = 'icon icon ion-ios-pause';
 		}
 		
 	}
@@ -209,16 +172,18 @@ angular.module('starter.controllers', ['starter.factories'])
 			currentTrackIndex++;
 			$scope.currentTrackIndex =currentTrackIndex;			
 			initTrack(tracks[currentTrackIndex]);
+			playAudio();
+			$scope.buttonText = 'icon icon ion-ios-pause';
 		}
 	}
 	
 	$scope.playBtn = function()	{
-		if($scope.buttonText == 'Play'){
+		if($scope.buttonText == 'icon icon ion-ios-play'){
 			playAudio();
-			$scope.buttonText = 'Pause';
+			$scope.buttonText = 'icon icon ion-ios-pause';
 		}else{
 			stopAudio();			
-			$scope.buttonText = 'Play';
+			$scope.buttonText = 'icon icon ion-ios-play';
 		}
 	}
 	
@@ -227,6 +192,7 @@ angular.module('starter.controllers', ['starter.factories'])
 		stopAudio();
 		//udpate current index
 		currentTrackIndex = index;
+		$scope.currentTrackIndex = index;
 		initTrack(track);
 		// sleep need or tracker slider won't work
 		setTimeout(function() {
@@ -234,7 +200,8 @@ angular.module('starter.controllers', ['starter.factories'])
 			playAudio();
 		}, 100);
 
-		$scope.buttonText = 'Pause';
+		$scope.buttonText = 'icon icon ion-ios-pause';
+		
 		
 	}
 	
@@ -267,8 +234,6 @@ angular.module('starter.controllers', ['starter.factories'])
 		stopAudio();
     });
 	 
-	
-
 	
 	$scope.tracks = tracks;
 	$scope.currentTrackIndex = currentTrackIndex;

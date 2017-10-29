@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+#seek-field {
+	margin: 6px;
+	width: 100%;
+}
+
+#duration {
+	margin-top:6px;
+}
+
+button.control{
+	width:120px;
+}
