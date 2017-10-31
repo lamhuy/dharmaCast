@@ -1,8 +1,15 @@
 <ion-view>
 <ion-nav-title>{{title}}</ion-nav-title>
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/dharmaCast/{{artistKey}}/{{playlist.listName}}">
+	<div class="bar bar-subheader item-input-inset">
+		<label class="item-input-wrapper">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" placeholder="Playlist Search" ng-model="search" ng-change="resizeContent()">			
+		</label>
+		<button type="button" class="button icon ion-ios-close" ng-click="search = ''"></button>
+	</div>
+  <ion-content class="has-subheader">
+    <ion-list>    
+      <ion-item ng-repeat="playlist in playlists | filter:search | orderBy:['title','date']" href="#/app/dharmaCast/{{artistKey}}/{{playlist.listName}}">
         {{playlist.title}} <span ng-if="playlist.date"> - {{playlist.date}}</span>
       </ion-item>
     </ion-list>

@@ -62,7 +62,7 @@ angular.module('starter.controllers', ['starter.factories'])
 })
 
 
-.controller('TopiclistsCtrl', function($scope,  $stateParams, audioFactory) {
+.controller('TopiclistsCtrl', function($scope,  $stateParams, $ionicScrollDelegate, audioFactory) {
 	// grab json
 	audioFactory.getTopicLists($stateParams.dharmaCastName).then(function(response) {
 		
@@ -76,6 +76,9 @@ angular.module('starter.controllers', ['starter.factories'])
 		console.info(error);
 	});
 	
+/*	$scope.resizeContent = function() {
+		$ionicScrollDelegate.$getByHandle('main').resize();
+	};*/
 	
 	
 })
