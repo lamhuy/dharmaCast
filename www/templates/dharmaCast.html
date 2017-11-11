@@ -1,8 +1,13 @@
 <ion-view view-title="Dharma Cast">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="dharmaCast in dharmaCasts" href="#/app/dharmaCast/{{dharmaCast.listName}}">
-        {{dharmaCast.title}}
+      <ion-item ng-repeat="dharmaCast in dharmaCasts">
+        <a class="item item-thumbnail-left" href="#/app/dharmaCast/{{dharmaCast.listName}}">
+	      <img src="img/{{dharmaCast.listName}}.jpg">
+	      <h2>{{dharmaCast.title}}</h2>
+	     <!--  <p>Nine Inch Nails</p> -->
+	    </a>
+        
       </ion-item>
     </ion-list>
     

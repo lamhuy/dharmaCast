@@ -1,9 +1,1 @@
-[ {
-	"title" : "Thich Nhat Hanh",
-	"listName": "TNH",
-	"id" : 1		
-}, {
-	"title" : "Thich Phap Hoa",
-	"listName": "TPH",
-	"id" : 2
-}]
+[{"title": "Thích Nhất Hạnh", "listName": "TNH", "id": 1}, {"title": "Thích Pháp Hòa", "listName": "TPH", "id": 2}, {"title": "Ajahn Jayasaro", "listName": "AJB", "search": "Ajahn Jayasaro", "id": 3}, {"title": "Matthieu Richard", "listName": "MR", "search": "Matthieu Richard", "id": 4}]

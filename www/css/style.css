@@ -11,3 +11,7 @@
 button.control{
 	width:120px;
 }
+
+ion-item.item{
+	padding: 0px;
+}
